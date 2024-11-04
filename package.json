@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://damp-waters-81236-5574034b183b.herokuapp.com",
+  "proxy": "https://pokedexprojetoeso.netlify.app",
   "eslintConfig": {
     "extends": [
       "react-app",
