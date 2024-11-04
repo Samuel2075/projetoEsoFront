@@ -1,0 +1,35 @@
+.container-pokedex {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pokedex-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pokemon-card {
+  width: calc(33.333% - 20px);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .pokemon-card {
+      width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .pokemon-card {
+      width: 100%;
+  }
+}

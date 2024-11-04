@@ -1,0 +1,43 @@
+.filter-form {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.filter-input,
+.filter-select {
+    margin-right: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    height: max-content;
+}
+
+.filter-form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+.filter-input,
+.filter-select,
+.filter-button {
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+.filter-button {
+    background-color: #dc3545!important;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+    background-color: #c82333;
+}
+
+.filter-button:hover {
+  background-color: #c82333;
+}
