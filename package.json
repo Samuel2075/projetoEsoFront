@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "https://damp-waters-81236-5574034b183b.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",
