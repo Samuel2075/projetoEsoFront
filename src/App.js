@@ -5,7 +5,7 @@ import PokemonList from './components/PokemonList';
 import FilterForm from './components/FilterForm';
 
 function App() {
-    const BASE_URL = "http://localhost:8080";
+    const BASE_URL = "https://damp-waters-81236-5574034b183b.herokuapp.com";
     const [pokemons, setPokemons] = useState([]);
     const [colors, setColors] = useState([]);
     const [types, setTypes] = useState([]);
@@ -17,21 +17,33 @@ function App() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const responsePokemons = await axios.get(`${BASE_URL}/pokemon/${page}/${size}`);
-                const responseColors = await axios.get(`${BASE_URL}/colors`);
-                const responseTypes = await axios.get(`${BASE_URL}/types`);
-                const responseHabitats = await axios.get(`${BASE_URL}/habitats`);
+                let responsePokemons;
+                if (jsonFilter) {
+                    const updatedFilter = { ...jsonFilter, page, size };
+                    responsePokemons = await axios.post(`${BASE_URL}/pokemon/filter`, updatedFilter);
+                } else {
+                    responsePokemons = await axios.get(`${BASE_URL}/pokemon/${page}/${size}`);
+                }
                 setPokemons(responsePokemons.data);
-                setColors(responseColors.data);
-                setTypes(responseTypes.data);
-                setHabitats(responseHabitats.data);
+                if (!colors.length) {
+                    const responseColors = await axios.get(`${BASE_URL}/colors`);
+                    setColors(responseColors.data);
+                }
+                if (!types.length) {
+                    const responseTypes = await axios.get(`${BASE_URL}/types`);
+                    setTypes(responseTypes.data);
+                }
+                if (!habitats.length) {
+                    const responseHabitats = await axios.get(`${BASE_URL}/habitats`);
+                    setHabitats(responseHabitats.data);
+                }
             } catch (error) {
                 console.error('Erro ao buscar Pokémon:', error);
             }
         };
 
         fetchData();
-    }, [page, size]);
+    }, [page, size, jsonFilter]);
 
     const handleFilter = (filterData) => {
         const {
@@ -55,35 +67,11 @@ function App() {
 
         setJsonFilter(jsonPost);
         setPage(0);
-        fetchFilteredPokemons(jsonPost);
     };
 
-    const fetchFilteredPokemons = async (filter) => {
-        try {
-            const responseFiltro = await axios.post(`${BASE_URL}/pokemon/filter`, filter);
-            setPokemons(responseFiltro.data);
-        } catch (error) {
-            console.error('Erro ao aplicar filtro:', error);
-        }
-    };
-
-    const clickPagination = async (isNext) => {
+    const clickPagination = (isNext) => {
         const newPage = isNext ? page + 1 : Math.max(page - 1, 0);
         setPage(newPage);
-
-        try {
-            let response;
-            if (jsonFilter) {
-                const updatedFilter = { ...jsonFilter, page: newPage };
-                response = await axios.post(`${BASE_URL}/pokemon/filter`, updatedFilter);
-            } else {
-                response = await axios.get(`${BASE_URL}/pokemon/${newPage}/${size}`);
-            }
-            
-            setPokemons(response.data);
-        } catch (error) {
-            console.error('Erro ao buscar Pokémon:', error);
-        }
     };
 
     return (
