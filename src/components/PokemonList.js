@@ -2,17 +2,14 @@ import React, { useState } from 'react';
 import PokemonCard from './PokemonCard';
 
 const PokemonList = ({ pokemons, clickPagination }) => {
-    const [isNext, setIsNext] = useState(true);
 
     const handlePrevious = (e) => {
         e.preventDefault();
-        setIsNext(false);
         clickPagination(false);
     };
 
     const handleNext = (e) => {
         e.preventDefault();
-        setIsNext(true);
         clickPagination(true);
     };
 
