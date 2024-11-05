@@ -42,7 +42,7 @@ function App() {
         };
 
         fetchData();
-    }, [page, jsonFilter]);
+    }, [page, jsonFilter, colors, habitats, types ]);
 
     const handleFilter = (filterData) => {
         const {
