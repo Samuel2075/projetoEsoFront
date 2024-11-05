@@ -11,7 +11,6 @@ function App() {
     const [types, setTypes] = useState([]);
     const [habitats, setHabitats] = useState([]);
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(10);
     const [jsonFilter, setJsonFilter] = useState(null);
 
     useEffect(() => {
@@ -19,10 +18,10 @@ function App() {
             try {
                 let responsePokemons;
                 if (jsonFilter) {
-                    const updatedFilter = { ...jsonFilter, page, size };
+                    const updatedFilter = { ...jsonFilter, page };
                     responsePokemons = await axios.post(`${BASE_URL}/pokemon/filter`, updatedFilter);
                 } else {
-                    responsePokemons = await axios.get(`${BASE_URL}/pokemon/${page}/${size}`);
+                    responsePokemons = await axios.get(`${BASE_URL}/pokemon/${page}/10`);
                 }
                 setPokemons(responsePokemons.data);
                 if (!colors.length) {
@@ -43,7 +42,7 @@ function App() {
         };
 
         fetchData();
-    }, [page, size, jsonFilter]);
+    }, [page, jsonFilter]);
 
     const handleFilter = (filterData) => {
         const {
@@ -62,7 +61,7 @@ function App() {
             minBaseExperience: minBaseExperience || 0,
             maxBaseExperience: maxBaseExperience || 0,
             page: 0,
-            size: size
+            size: 10
         };
 
         setJsonFilter(jsonPost);

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PokemonCard from './PokemonCard';
 
 const PokemonList = ({ pokemons, clickPagination }) => {
-    const [isNext, setIsNext] = useState(true);
 
     const handlePrevious = (e) => {
         e.preventDefault();
