@@ -1,14 +1,32 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/PokedexLogin.css';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 function Register() {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-
-  const handleSubmit = (event) => {
+  const navigate = useNavigate(); 
+  const BASE_URL = "http://localhost:8080";
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Email:', email, 'Password:', password);
+    const jsonParam = {
+        "username": username,
+        "password": password,
+        "name": name
+    };
+    const responseRegister = await axios.post(`${BASE_URL}/user/register`, jsonParam);
+    
+    Swal.fire({
+        title: 'Cadastro!',
+        text: responseRegister.data.message,
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        navigate('/login');
+      });
   };
 
   return (
@@ -57,12 +75,11 @@ function Register() {
               required
             />
           </div>
-          <button type="submit" className="btn pokedex-btn">Entrar</button>
-          <button type="submit" className="btn pokedex-btn mt-2">Sou novo no jogo</button>
+          <button type="submit" className="btn pokedex-btn">Cadastrar</button>
         </form>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;

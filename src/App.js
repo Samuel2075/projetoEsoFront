@@ -5,7 +5,6 @@ import PokemonList from './components/PokemonList';
 import FilterForm from './components/FilterForm';
 
 function App() {
-    //const BASE_URL = "https://damp-waters-81236-5574034b183b.herokuapp.com";
     const BASE_URL = "http://localhost:8080";
     const [pokemons, setPokemons] = useState([]);
     const [colors, setColors] = useState([]);
@@ -43,7 +42,7 @@ function App() {
         };
 
         fetchData();
-    }, [page, jsonFilter, colors, habitats, types ]);
+    }, [page, jsonFilter, colors, habitats, types]);
 
     const handleFilter = (filterData) => {
         const {
@@ -76,16 +75,18 @@ function App() {
 
     return (
         <div className="container-pokedex">
-            <h1 className="pokedex-title">Pokédex</h1>
-            <div className="row">
-                <div className="col-md-12">
-                    <FilterForm onFilter={handleFilter} colors={colors} types={types} habitats={habitats} />
+                <h1 className="pokedex-title">Pokédex</h1>
+                <div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <FilterForm onFilter={handleFilter} colors={colors} types={types} habitats={habitats} />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <PokemonList pokemons={pokemons} clickPagination={clickPagination} />
+                    </div>
                 </div>
             </div>
-            <div className="row">
-                <PokemonList pokemons={pokemons} clickPagination={clickPagination} />
-            </div>
-        </div>
     );
 }
 
