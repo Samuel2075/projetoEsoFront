@@ -17,7 +17,9 @@ function Register() {
         "password": password,
         "name": name
     };
-    const responseRegister = await axios.post(`${BASE_URL}/user/register`, jsonParam);
+    const responseRegister = await axios.post(`${BASE_URL}/user/register`, jsonParam, {
+      withCredentials: true
+  });
     
     Swal.fire({
         title: 'Cadastro!',
