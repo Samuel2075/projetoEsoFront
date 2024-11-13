@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 function Login() {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
-  const BASE_URL = "http://localhost:8080";
+  const BASE_URL = "https://damp-waters-81236-5574034b183b.herokuapp.com";
   const navigate = useNavigate(); 
   const handleSubmit = async (event) => {
     event.preventDefault();
