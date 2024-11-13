@@ -34,6 +34,12 @@ const PokemonCard = ({ pokemon }) => {
                     >
                         Detalhe
                     </button>
+                    <button 
+                        className="btn btn-primary b-none filter-button mt-2" 
+                        onClick={() => openModal(pokemon)}
+                    >
+                        Capturar
+                    </button>
                 </div>
             </div>
             {selectedPokemon && (

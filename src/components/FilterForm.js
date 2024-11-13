@@ -19,7 +19,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
     return (
         <form className="filter-form-container" onSubmit={handleSubmit}>
             
-            <div class="form-group">
+            <div className="form-group">
                 <input
                     type="text"
                     className="filter-input"
@@ -29,7 +29,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                 />
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
                 <input
                     type="number"
                     className="filter-input"
@@ -38,7 +38,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                     onChange={(e) => setMinWeight(e.target.value)}
                 />
             </div>
-            <div class="form-group">
+            <div className="form-group">
                 <input
                     type="number"
                     className="filter-input"
@@ -47,7 +47,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                     onChange={(e) => setMaxWeight(e.target.value)}
                 />
             </div>
-            <div class="form-group">
+            <div className="form-group">
                 <input
                     type="number"
                     className="filter-input"
@@ -56,7 +56,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                     onChange={(e) => setMinBaseExperience(e.target.value)}
                 />
             </div>
-            <div class="form-group">
+            <div className="form-group">
                 <input
                     type="number"
                     className="filter-input"
@@ -66,7 +66,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                 />
             </div>
             
-            <div class="form-group">
+            <div className="form-group">
                 <select
                     className="filter-select"
                     onChange={(e) => setColor(e.target.value)}
@@ -78,7 +78,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                     ))}
                 </select>
             </div>
-            <div class="form-group">
+            <div className="form-group">
                 <select
                     className="filter-select"
                     onChange={(e) => setType(e.target.value)}
@@ -90,7 +90,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                     ))}
                 </select>
             </div>
-            <div class="form-group">
+            <div className="form-group">
                 <select
                     className="filter-select"
                     onChange={(e) => setHabitat(e.target.value)}

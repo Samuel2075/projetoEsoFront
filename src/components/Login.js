@@ -16,11 +16,12 @@ function Login() {
         "password": password
     };
     try {
-        const responseRegister = await axios.post(`${BASE_URL}/auth/login`, jsonParam);
+        const responseLogin = await axios.post(`${BASE_URL}/auth/login`, jsonParam);
+        localStorage.setItem('token', responseLogin.data.token);
+        localStorage.setItem('userId', responseLogin.data.user.id);
         
         Swal.fire({
             title: 'Login efetuado com sucesso!',
-            text: responseRegister.data.message,
             icon: 'success',
             confirmButtonText: 'OK'
           }).then(() => {

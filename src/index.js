@@ -5,6 +5,7 @@ import App from './App';
 import Login from './components/Login';
 import Register from './components/Register';
 import reportWebVitals from './reportWebVitals';
+import PrivateRoute from './components/PrivateRoute';
 import {
   createBrowserRouter, RouterProvider
 } from "react-router-dom";
@@ -12,7 +13,7 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <PrivateRoute element={<App />} />,
   },
   {
     path: "/login",

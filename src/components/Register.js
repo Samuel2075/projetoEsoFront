@@ -9,7 +9,7 @@ function Register() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const navigate = useNavigate(); 
-  const BASE_URL = "http://localhost:8080";
+  const BASE_URL = "https://damp-waters-81236-5574034b183b.herokuapp.com/";
   const handleSubmit = async (event) => {
     event.preventDefault();
     const jsonParam = {
