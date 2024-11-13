@@ -40,7 +40,6 @@ function App() {
                 }
                 
                 setPokemons(responsePokemons.data);
-                console.log(pokemons);
 
                 if (!colors.length) {
                     const responseColors = await axios.get(`${BASE_URL}/colors`, config);
