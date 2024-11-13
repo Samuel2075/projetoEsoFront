@@ -1,0 +1,96 @@
+/* Container geral para centralizar */
+.pokedex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  /* Cartão central com o estilo de Pokédex */
+  .pokedex-card {
+    background-color: #ff2d20;
+    border-radius: 15px;
+    width: 350px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: center;
+    position: relative;
+    border: 2px solid #000;
+  }
+  
+  /* Título */
+  .pokedex-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2em;
+    margin: 20px 0;
+    color: #fff;
+  }
+  
+  /* Cabeçalho da Pokédex com luzes */
+  .pokedex-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  /* Luzes grandes e pequenas */
+  .light {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 5px;
+    border: 2px solid #333;
+  }
+  
+  .big-light {
+    width: 50px;
+    height: 50px;
+    background-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(0, 132, 255, 0.8);
+  }
+  
+  .red-light {
+    background-color: #ff3b30;
+  }
+  
+  .yellow-light {
+    background-color: #ffcc00;
+  }
+  
+  .green-light {
+    background-color: #4cd964;
+  }
+  
+  .small-lights {
+    display: flex;
+  }
+  
+  /* Inputs estilizados */
+  .pokedex-input {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: 2px solid #ff2d20;
+    border-radius: 10px;
+  }
+  
+  /* Botão estilizado */
+  .pokedex-btn {
+    background-color: #3b3b98;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+  }
+  
+  .pokedex-btn:hover {
+    background-color: #706fd3;
+  }
+  

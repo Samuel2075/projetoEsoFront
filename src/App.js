@@ -5,7 +5,8 @@ import PokemonList from './components/PokemonList';
 import FilterForm from './components/FilterForm';
 
 function App() {
-    const BASE_URL = "https://damp-waters-81236-5574034b183b.herokuapp.com";
+    //const BASE_URL = "https://damp-waters-81236-5574034b183b.herokuapp.com";
+    const BASE_URL = "http://localhost:8080";
     const [pokemons, setPokemons] = useState([]);
     const [colors, setColors] = useState([]);
     const [types, setTypes] = useState([]);
