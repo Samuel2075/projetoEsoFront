@@ -13,12 +13,14 @@ function App() {
     const [habitats, setHabitats] = useState([]);
     const [page, setPage] = useState(0);
     const [jsonFilter, setJsonFilter] = useState(null);
+    const [idUser, setIdUser] = useState(null);
     
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
             const token = localStorage.getItem("token");
+            setIdUser(localStorage.getItem("userId"));
             if (!token) {
                 navigate('/login');
                 return;
@@ -65,7 +67,7 @@ function App() {
     }, [page, jsonFilter, colors.length, habitats.length, types.length, navigate]);
 
     const handleFilter = (filterData) => {
-        const { name, color, type, habitat, minWeight, maxWeight, minBaseExperience, maxBaseExperience } = filterData;
+        const { name, color, type, habitat, minWeight, maxWeight, minBaseExperience, maxBaseExperience, pokemonsCapturados } = filterData;
 
         const jsonPost = {
             name: name || undefined,
@@ -77,7 +79,9 @@ function App() {
             minBaseExperience: minBaseExperience || undefined,
             maxBaseExperience: maxBaseExperience || undefined,
             page: 0,
-            size: 10
+            size: 10,
+            idUser: pokemonsCapturados == 1 ? idUser : 0,
+            allCapturetedPokemons: pokemonsCapturados == 2
         };
 
         setJsonFilter(jsonPost);

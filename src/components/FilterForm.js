@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/FilterForm.css';
+import { useNavigate } from 'react-router-dom';
 
 const FilterForm = ({ onFilter, colors, types, habitats }) => {
     const [name, setName] = useState('');
@@ -10,10 +11,13 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
     const [minBaseExperience, setMinBaseExperience] = useState('');
     const [maxBaseExperience, setMaxBaseExperience] = useState('');
     const [habitat, setHabitat] = useState('');
+    const [pokemonsCapturados, setPokemonsCapturados] = useState('');
+   
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onFilter({ name, color, type, habitat, minWeight, maxWeight, minBaseExperience, maxBaseExperience });
+        onFilter({ name, color, type, habitat, minWeight, maxWeight, minBaseExperience, maxBaseExperience, pokemonsCapturados });
     };
 
     return (
@@ -93,12 +97,12 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
             <div className="form-group">
                 <select
                     className="filter-select"
-                    onChange={(e) => setHabitat(e.target.value)}
+                    onChange={(e) => setPokemonsCapturados(e.target.value)}
                 >
-                    <option value="">Habitat</option>
-                    {habitats.map((habitat, index) => (
-                        <option key={index} value={habitat.name}>{habitat.name}</option>
-                    ))}
+                    <option value={0}>Pokemons capturados</option>
+                    <option key={1} value={1}>Seus pokemons</option>
+                    <option key={2} value={2}>Pokemons capturados</option>
+                    
                 </select>
             </div>
             <button type="submit" className="filter-button">Filtrar</button>
