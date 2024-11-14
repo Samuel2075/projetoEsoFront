@@ -20,5 +20,22 @@ Esse é o json que eu monto para enviar por requisição post a minha API.
             size: size
         };
 `
+### Segunda etapa
+Para essa segunda etapa o que precisei fazer a mais é adicionar algumas configurações nas minhas requisições.
+`
+const config = {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            withCredentials: true,
+        };
+`
+precisei adicionar esse json como configuração nas minhas requisições. Ele é responsavel por dizer como é o conteúdo da minha requisição e adicionar o token que será gerado.
 
+Esse token é adquirido quando o usuário faz o login. Nesse momento o sistema valida o usuário e caso de tudo certo ele retornará um token, que será salvo no localstorage do navegador. Esse token será enviados em todas as requisições futuras.
+
+Fora essa parte dos token foi criado mais 2 telas, uma de login e uma de registro. Tentei pegar uma pokedex como base para criar elas.
+
+Também foi preciso criar um arquivo de Rotas, para validar se o usuário está logado para acessar as telas que precisam de autenticação. Eu uso o próprio token para saber se o usuário está logado, pois se tiver um token gerado para ele, significa que ele já passou pelo login. Usei o `react-router-dom` para me ajudar com essas rotas, ele foi responsavel por fazer o link entre as telas com a função `Navigate`.
 
