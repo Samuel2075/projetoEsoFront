@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/FilterForm.css';
+import useNavigate from 'react-router-dom';
 
 const FilterForm = ({ onFilter, colors, types, habitats }) => {
     const [name, setName] = useState('');
@@ -11,11 +12,16 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
     const [maxBaseExperience, setMaxBaseExperience] = useState('');
     const [habitat, setHabitat] = useState('');
     const [pokemonsActions, setPokemonsActions] = useState('');
-    
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         onFilter({ name, color, type, habitat, minWeight, maxWeight, minBaseExperience, maxBaseExperience, pokemonsActions });
+    };
+
+    const logoutClick = () => {
+        localStorage.clear();
+        navigate('/');
     };
 
     return (
@@ -116,6 +122,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                 </select>
             </div>
             <button type="submit" className="filter-button">Filtrar</button>
+            <button type="button" onClick={logoutClick} className="logout-button">Sair</button>
         </form>
     );
 };

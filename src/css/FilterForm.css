@@ -34,6 +34,13 @@
     transition: background-color 0.3s;
 }
 
+.logout-button {
+    background-color: #3a3939!important;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
 .filter-button:hover {
     background-color: #c82333;
 }
