@@ -53,7 +53,7 @@ const PokemonCard = ({ pokemon }) => {
     };
 
     let statusClass = isCaptured ? "captured-text" : "free-text";
-    let statusText = isCaptured ? "Capturado" : "Livre";
+    let statusText = isCaptured ? `Capturado - ${pokemon.user.name}` : "Livre";
 
     return (
         <div className="col-md-4 mb-4">
