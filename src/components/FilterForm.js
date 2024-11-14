@@ -10,12 +10,12 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
     const [minBaseExperience, setMinBaseExperience] = useState('');
     const [maxBaseExperience, setMaxBaseExperience] = useState('');
     const [habitat, setHabitat] = useState('');
-    const [pokemonsCapturados, setPokemonsCapturados] = useState('');
+    const [pokemonsActions, setPokemonsActions] = useState('');
     
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onFilter({ name, color, type, habitat, minWeight, maxWeight, minBaseExperience, maxBaseExperience, pokemonsCapturados });
+        onFilter({ name, color, type, habitat, minWeight, maxWeight, minBaseExperience, maxBaseExperience, pokemonsActions });
     };
 
     return (
@@ -106,7 +106,7 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
             <div className="form-group">
                 <select
                     className="filter-select"
-                    onChange={(e) => setPokemonsCapturados(e.target.value)}
+                    onChange={(e) => setPokemonsActions(e.target.value)}
                     defaultValue="0"
                 >
                     <option value="PNC">Pokemons não capturados</option>

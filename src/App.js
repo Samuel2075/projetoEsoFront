@@ -67,7 +67,7 @@ function App() {
     }, [page, jsonFilter, colors.length, habitats.length, types.length, navigate]);
 
     const handleFilter = (filterData) => {
-        const { name, color, type, habitat, minWeight, maxWeight, minBaseExperience, maxBaseExperience, pokemonsCapturados } = filterData;
+        const { name, color, type, habitat, minWeight, maxWeight, minBaseExperience, maxBaseExperience, pokemonsActions } = filterData;
 
         const jsonPost = {
             name: name || undefined,
@@ -80,8 +80,8 @@ function App() {
             maxBaseExperience: maxBaseExperience || undefined,
             page: 0,
             size: 10,
-            idUser: pokemonsCapturados === "1" ? idUser : 0,
-            allCapturetedPokemons: pokemonsCapturados === "2"
+            idUser: pokemonsActions,
+            allCapturetedPokemons: pokemonsActions
         };
 
         setJsonFilter(jsonPost);
