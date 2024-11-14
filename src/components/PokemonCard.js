@@ -35,7 +35,7 @@ const PokemonCard = ({ pokemon }) => {
         }
         let responsePokemons;
         responsePokemons = await axios.post(`${BASE_URL}/user/pokemon/capture`, params, config);
-        console.log(`Capturando Pokémon: ${responsePokemons}`);
+        console.log(responsePokemons);
     };
 
     const closeModal = () => {
