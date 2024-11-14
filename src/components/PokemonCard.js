@@ -2,24 +2,31 @@ import { React, useState } from 'react';
 import '../css/PokemonCard.css';
 import PokemonModal from './PokemonModal';
 
-
 const PokemonCard = ({ pokemon }) => {
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isCaptured, setIsCaptured] = useState(false); // Novo estado para capturar Pokémon
+
     const openModal = (pokemon) => {
         setSelectedPokemon(pokemon);
         setIsModalOpen(true);
     };
 
     const capturePokemon = (pokemon) => {
-        console.log(pokemon);
+        console.log(`Capturando Pokémon: ${pokemon.name}`);
         
+        
+        setIsCaptured(true);
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
         setSelectedPokemon(null);
     };
+
+    const statusClass = isCaptured ? "captured-text" : "free-text";
+    const statusText = isCaptured ? "Capturado" : "Livre";
+
     return (
         <div className="col-md-4 mb-4">
             <div className="card card-pokemon">
@@ -42,9 +49,11 @@ const PokemonCard = ({ pokemon }) => {
                     <button 
                         className="btn btn-primary b-none filter-button mt-2" 
                         onClick={() => capturePokemon(pokemon)}
+                        disabled={isCaptured}
                     >
                         Capturar
                     </button>
+                    <h5 className={statusClass}>{statusText}</h5>
                 </div>
             </div>
             {selectedPokemon && (

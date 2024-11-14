@@ -42,3 +42,11 @@
 .b-none {
     border: none;
 }
+
+.captured-text {
+    color: red;
+}
+
+.free-text {
+    color: green;
+}
