@@ -1,4 +1,3 @@
-/* Container geral para centralizar */
 .pokedex-container {
     display: flex;
     justify-content: center;
@@ -7,7 +6,6 @@
     background-color: #f2f2f2;
   }
   
-  /* Cartão central com o estilo de Pokédex */
   .pokedex-card {
     background-color: #ff2d20;
     border-radius: 15px;
@@ -20,7 +18,6 @@
     border: 2px solid #000;
   }
   
-  /* Título */
   .pokedex-title {
     font-family: 'Press Start 2P', cursive;
     font-size: 1.2em;
@@ -28,7 +25,6 @@
     color: #fff;
   }
   
-  /* Cabeçalho da Pokédex com luzes */
   .pokedex-header {
     display: flex;
     align-items: center;
@@ -36,7 +32,6 @@
     margin-bottom: 20px;
   }
   
-  /* Luzes grandes e pequenas */
   .light {
     width: 20px;
     height: 20px;
@@ -68,7 +63,6 @@
     display: flex;
   }
   
-  /* Inputs estilizados */
   .pokedex-input {
     background-color: #ff6b6b;
     color: #fff;
@@ -76,7 +70,6 @@
     border-radius: 10px;
   }
   
-  /* Botão estilizado */
   .pokedex-btn {
     background-color: #3b3b98;
     color: white;
