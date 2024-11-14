@@ -80,8 +80,8 @@ function App() {
             maxBaseExperience: maxBaseExperience || undefined,
             page: 0,
             size: 10,
-            idUser: pokemonsActions,
-            allCapturetedPokemons: pokemonsActions
+            idUser: idUser,
+            pokemonsActions: pokemonsActions
         };
 
         setJsonFilter(jsonPost);
