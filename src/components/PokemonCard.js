@@ -1,19 +1,40 @@
 import { React, useState } from 'react';
 import '../css/PokemonCard.css';
 import PokemonModal from './PokemonModal';
-
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const PokemonCard = ({ pokemon }) => {
+    const BASE_URL = "https://damp-waters-81236-5574034b183b.herokuapp.com";
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isCaptured] = useState(pokemon.user != null);
+    const navigate = useNavigate();
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
+    if (!token) {
+        navigate('/login');
+        return;
+    }
 
     const openModal = (pokemon) => {
         setSelectedPokemon(pokemon);
         setIsModalOpen(true);
     };
 
-    const capturePokemon = (pokemon) => {
-        console.log(`Capturando Pokémon: ${pokemon.name}`);
+    const capturePokemon = async (pokemon) => {
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            withCredentials: true,
+        };
+        const params = {
+            "idPokemon": pokemon.id,
+            "idUser": userId
+        }
+        responsePokemons = await axios.post(`${BASE_URL}/user/pokemon/capture`, params, config);
+        console.log(`Capturando Pokémon: ${responsePokemons}`);
     };
 
     const closeModal = () => {
