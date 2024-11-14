@@ -5,7 +5,7 @@ import PokemonModal from './PokemonModal';
 const PokemonCard = ({ pokemon }) => {
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isCaptured, setIsCaptured] = useState(pokemon.user != null);
+    const [isCaptured] = useState(pokemon.user != null);
 
     const openModal = (pokemon) => {
         setSelectedPokemon(pokemon);
