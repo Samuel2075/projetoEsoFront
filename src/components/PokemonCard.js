@@ -33,6 +33,7 @@ const PokemonCard = ({ pokemon }) => {
             "idPokemon": pokemon.id,
             "idUser": userId
         }
+        let responsePokemons;
         responsePokemons = await axios.post(`${BASE_URL}/user/pokemon/capture`, params, config);
         console.log(`Capturando Pokémon: ${responsePokemons}`);
     };
