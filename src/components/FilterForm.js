@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../css/FilterForm.css';
-import useNavigate from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const FilterForm = ({ onFilter, colors, types, habitats }) => {
     const [name, setName] = useState('');
