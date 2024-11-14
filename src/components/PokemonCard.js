@@ -38,7 +38,7 @@ const PokemonCard = ({ pokemon }) => {
         let responsePokemons;
         let data;
         responsePokemons = await axios.post(`${BASE_URL}/user/pokemon/capture`, params, config);
-        data = JSON.parse(responsePokemons.data);
+        data = responsePokemons.data;
         setIsCaptured(data.error);
         Swal.fire({
             title: data.message,
