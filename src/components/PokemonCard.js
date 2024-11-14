@@ -54,8 +54,8 @@ const PokemonCard = ({ pokemon }) => {
         setSelectedPokemon(null);
     };
 
-    const statusClass = isCaptured ? "captured-text" : "free-text";
-    const statusText = isCaptured ? "Capturado" : "Livre";
+    let statusClass = isCaptured ? "captured-text" : "free-text";
+    let statusText = isCaptured ? "Capturado" : "Livre";
 
     return (
         <div className="col-md-4 mb-4">
