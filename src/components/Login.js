@@ -18,7 +18,7 @@ function Login() {
     try {
         const responseLogin = await axios.post(`${BASE_URL}/auth/login`, jsonParam);
         localStorage.setItem('token', responseLogin.data.token);
-        localStorage.setItem('userId', responseLogin.data.user.id);
+        localStorage.setItem('userId', responseLogin.data.userId);
         
         Swal.fire({
             title: 'Login efetuado com sucesso!',
@@ -29,14 +29,12 @@ function Login() {
           });
 
     } catch (error) {
-        if (error.response.status === 403) {
-            Swal.fire({
-                title: 'Falha na autenticação!',
-                text: "Usuário ou senha não estão corretos.",
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        }
+      Swal.fire({
+        title: 'Falha na autenticação!',
+        text: "Usuário ou senha não estão corretos.",
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
     }
   };
 
