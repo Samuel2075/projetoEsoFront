@@ -38,11 +38,10 @@ const PokemonCard = ({ pokemon }) => {
         let responsePokemons;
         let data;
         responsePokemons = await axios.post(`${BASE_URL}/user/pokemon/capture`, params, config);
-        data = responsePokemons.data;
-        setIsCaptured(data.error);
+        setIsCaptured(!responsePokemons.data.error);
         Swal.fire({
-            title: data.message,
-            icon: data.error ? 'error' : 'success',
+            title: responsePokemons.data.message,
+            icon: responsePokemons.data.error ? 'error' : 'success',
             confirmButtonText: 'OK'
           }).then(() => {
             navigate('/');
