@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../css/FilterForm.css';
-import { useNavigate } from 'react-router-dom';
 
 const FilterForm = ({ onFilter, colors, types, habitats }) => {
     const [name, setName] = useState('');
@@ -12,7 +11,6 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
     const [maxBaseExperience, setMaxBaseExperience] = useState('');
     const [habitat, setHabitat] = useState('');
     const [pokemonsCapturados, setPokemonsCapturados] = useState('');
-   
     
 
     const handleSubmit = (e) => {
@@ -91,6 +89,17 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                     <option value="">Tipo</option>
                     {types.map((type, index) => (
                         <option key={index} value={type.name}>{type.name}</option>
+                    ))}
+                </select>
+            </div>
+            <div className="form-group">
+                <select
+                    className="filter-select"
+                    onChange={(e) => setHabitat(e.target.value)}
+                >
+                    <option value="">Habitat</option>
+                    {habitats.map((habitat, index) => (
+                        <option key={index} value={habitat.name}>{habitat.name}</option>
                     ))}
                 </select>
             </div>
