@@ -108,9 +108,9 @@ const FilterForm = ({ onFilter, colors, types, habitats }) => {
                     className="filter-select"
                     onChange={(e) => setPokemonsCapturados(e.target.value)}
                 >
-                    <option value={0}>Pokemons capturados</option>
-                    <option key={1} value={1}>Seus pokemons</option>
-                    <option key={2} value={2}>Pokemons capturados</option>
+                    <option value="0">Pokemons capturados</option>
+                    <option key={1} value="1">Seus pokemons</option>
+                    <option key={2} value="2">Pokemons capturados</option>
                     
                 </select>
             </div>
