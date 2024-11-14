@@ -3,11 +3,13 @@ import '../css/PokemonCard.css';
 import PokemonModal from './PokemonModal';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+
 const PokemonCard = ({ pokemon }) => {
     const BASE_URL = "https://damp-waters-81236-5574034b183b.herokuapp.com";
     const [selectedPokemon, setSelectedPokemon] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isCaptured] = useState(pokemon.user != null);
+    const [isCaptured, setIsCaptured] = useState(pokemon.user != null);
     const navigate = useNavigate();
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");
@@ -35,7 +37,14 @@ const PokemonCard = ({ pokemon }) => {
         }
         let responsePokemons;
         responsePokemons = await axios.post(`${BASE_URL}/user/pokemon/capture`, params, config);
-        console.log(responsePokemons);
+        setIsCaptured(responsePokemons.data.error);
+        Swal.fire({
+            title: responsePokemons.data.message,
+            icon: responsePokemons.data.error ? 'error' : 'success',
+            confirmButtonText: 'OK'
+          }).then(() => {
+            navigate('/');
+          });
     };
 
     const closeModal = () => {
