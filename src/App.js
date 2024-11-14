@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PokemonList from './components/PokemonList';
 import FilterForm from './components/FilterForm';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
     const BASE_URL = "https://damp-waters-81236-5574034b183b.herokuapp.com";
@@ -12,12 +13,12 @@ function App() {
     const [habitats, setHabitats] = useState([]);
     const [page, setPage] = useState(0);
     const [jsonFilter, setJsonFilter] = useState(null);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
             const token = localStorage.getItem("token");
             if (!token) {
-                console.error("Token não encontrado");
+                navigate('/login');
                 return;
             }
 

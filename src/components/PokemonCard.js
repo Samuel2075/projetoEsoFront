@@ -11,6 +11,11 @@ const PokemonCard = ({ pokemon }) => {
         setIsModalOpen(true);
     };
 
+    const capturePokemon = (pokemon) => {
+        console.log(pokemon);
+        
+    };
+
     const closeModal = () => {
         setIsModalOpen(false);
         setSelectedPokemon(null);
@@ -36,7 +41,7 @@ const PokemonCard = ({ pokemon }) => {
                     </button>
                     <button 
                         className="btn btn-primary b-none filter-button mt-2" 
-                        onClick={() => openModal(pokemon)}
+                        onClick={() => capturePokemon(pokemon)}
                     >
                         Capturar
                     </button>
