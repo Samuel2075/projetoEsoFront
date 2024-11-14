@@ -80,8 +80,8 @@ function App() {
             maxBaseExperience: maxBaseExperience || undefined,
             page: 0,
             size: 10,
-            idUser: pokemonsCapturados == 1 ? idUser : 0,
-            allCapturetedPokemons: pokemonsCapturados == 2
+            idUser: pokemonsCapturados === 1 ? idUser : 0,
+            allCapturetedPokemons: pokemonsCapturados === 2
         };
 
         setJsonFilter(jsonPost);
