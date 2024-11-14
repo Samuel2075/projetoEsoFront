@@ -13,8 +13,8 @@ function App() {
     const [habitats, setHabitats] = useState([]);
     const [page, setPage] = useState(0);
     const [jsonFilter, setJsonFilter] = useState(null);
-    const navigate = useNavigate();
     useEffect(() => {
+        const navigate = useNavigate();
         const fetchData = async () => {
             const token = localStorage.getItem("token");
             if (!token) {
